@@ -14,7 +14,7 @@ export const getCurrentConditions = async (locationKey) => {
 
         return currentConditions;
     } catch (error) {
-        
+        return {error: "Something went wrong..."}
     }
 }
 
@@ -26,7 +26,7 @@ export const getForecast = async (locationKey) => {
 
         return data.DailyForecasts
     } catch (error) {
-        
+        return {error: "Something went wrong..."}
     }
 }
 
@@ -35,9 +35,9 @@ export const autocompleteSearch = async (query) => {
     try {
         const res = await fetch(url);
         const data = await res.json();
-
-        return data
+        console.log(res);
+        return data.map((city)=>({city: city.LocalizedName, key: city.Key}))
     } catch (error) {
-        
+        return {error: "Something went wrong..."}
     }
 }
