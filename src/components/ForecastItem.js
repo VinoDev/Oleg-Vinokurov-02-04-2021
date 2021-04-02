@@ -1,7 +1,7 @@
 import './forecast-item.css';
 
 
-function ForecastItem({data}) {
+const ForecastItem = ({data}) => {
   return (
     <div className="forecast-item">
         <span>
