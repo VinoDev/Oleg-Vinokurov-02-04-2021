@@ -7,30 +7,30 @@ const initialState = {
   weatherIcon: "",
   key: "",
   forecast: [],
-  loading: true
+  autocompleteResult: null,
+  loading: false,
+  error: ""
 }
 
 const CurrentLocationSlice = createSlice({
   name: "CurrentLocation",
   initialState: initialState,
   reducers: {
-    setCity: (state, action) => {
-      state.name = action.payload;
+    weatherAndForecastRequest: (state, action) => {
+      state.loading = true;
     },
-    setTemp: (state, action) => {
-      state.temp = action.payload;
-    },  
-    setWeatherText: (state, action) => {
-      state.weatherText = action.payload;
+    weatherAndForecastSuccess: (state, action) => {
+      state.loading = false;
+      state.key = action.payload.key;
+      state.weatherText = action.payload.weatherText;
+      state.weatherIcon = action.payload.weatherIcon;
+      state.temp = action.payload.temp;
+      state.forecast = action.payload.forecast;
+      state.city = action.payload.city
     },
-    setWeatherIcon: (state, action) => {
-      state.weatherIcon = action.payload;
-    },
-    setKey: (state, action) => {
-      state.key = action.payload;
-    },
-    setForecast: (state, action) => {
-      state.forecast = action.payload;
+    weatherAndForecastFail: (state, action) => {
+      state.loading = false;
+      state.error = action.payload
     }
   },
 });
