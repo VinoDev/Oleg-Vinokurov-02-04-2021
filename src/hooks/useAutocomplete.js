@@ -17,7 +17,10 @@ const useAutocomplete = () => {
 
             const results = await autocompleteSearch(userInput);
     
-            console.log(results);
+            if(results.length === 0) {
+                dispatch(autocompleteFail(`City not found.`))
+                return false
+            }
 
             const mostRelevantResult = results[0];
 
@@ -32,7 +35,6 @@ const useAutocomplete = () => {
             console.log("Autocomplete error")
             console.log(error);
             dispatch(autocompleteFail("Something went wrong..."))
-            throw new Error(error);
         }
     }
 

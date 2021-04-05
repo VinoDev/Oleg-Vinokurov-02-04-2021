@@ -21,7 +21,6 @@ const useGetWeatherAndForecast = () => {
             const forecast = await handleForecastData(key);
 
             const data = {...weather, forecast}
-            console.log(data);
             
             dispatch(weatherAndForecastSuccess(data))
 
@@ -29,7 +28,6 @@ const useGetWeatherAndForecast = () => {
             console.log("weatherAndForecast error");
             console.log(error);
             dispatch(weatherAndForecastFail("Something went wrong..."))
-            throw new Error(error);
         }
     }
 

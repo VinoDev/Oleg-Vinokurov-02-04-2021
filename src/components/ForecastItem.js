@@ -9,7 +9,10 @@ const ForecastItem = ({data}) => {
             {data.day}
         </span>
         <span>
-            {data.temp+"'c"}
+            {data.maxTemp+"°C"}
+        </span>
+        <span>
+            {data.minTemp+"°C"}
         </span>
     </div>
   );

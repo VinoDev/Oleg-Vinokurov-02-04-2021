@@ -25,8 +25,13 @@ const useForm = () => {
 
                 const key = await handleAutocomplete(userInput);
                 setUserInput('');
-    
-                return getWeatherAndForecast(key)
+                
+                if(key){
+                    getWeatherAndForecast(key)
+                    return true
+                } else {
+                    return false
+                }
             } 
         } catch (error) {
             console.log("handleSubmit error")

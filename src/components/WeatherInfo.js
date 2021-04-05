@@ -1,22 +1,12 @@
 import './weather-info.css';
-import { TextField, CircularProgress, Button, IconButton } from "@material-ui/core";
-import SearchIcon from '@material-ui/icons/Search';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import { IconButton } from "@material-ui/core";
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ForecastItem from './ForecastItem.js';
-import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { autocompleteSearch, fetchWeather } from '../api.js';
-import { useSnackbar } from 'notistack';
-import useAutocomplete from '../hooks/useAutocomplete.js';
-import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
-import SearchField from './SearchForm.js'
 
 const WeatherInfo = () => {
 
-    const { city, temp } = useSelector((state) => state.weather);
-
-    const forecast = []
+    const { city, temp, forecast } = useSelector((state) => state.weather);
 
     return (
         <div className="weather-info">
@@ -42,7 +32,8 @@ const WeatherInfo = () => {
                             key={index}
                             data={{
                                 day: dayForecast.day,
-                                temp: dayForecast.temp
+                                minTemp: dayForecast.minTemp,
+                                maxTemp: dayForecast.maxTemp
                             }}
                         /> 
                     )                       
