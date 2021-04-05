@@ -20,12 +20,10 @@ const weatherSlice = createSlice({
     },
     weatherAndForecastSuccess: (state, action) => {
       state.loading = false;
-      state.key = action.payload.key;
       state.weatherText = action.payload.weatherText;
       state.weatherIcon = action.payload.weatherIcon;
       state.temp = action.payload.temp;
       state.forecast = action.payload.forecast;
-      state.city = action.payload.city
     },
     weatherAndForecastFail: (state, action) => {
       state.loading = false;

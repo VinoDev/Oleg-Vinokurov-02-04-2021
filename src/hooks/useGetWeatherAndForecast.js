@@ -17,18 +17,15 @@ const useGetWeatherAndForecast = () => {
         weatherAndForecastFail
     } = CurrentLocationSlice.actions;
 
-    const getWeatherAndForecast = async (userInput) => {
+    const getWeatherAndForecast = async () => {
         try {
 
             dispatch(weatherAndForecastRequest());
 
-            userInput.trim();
-
-            const { city, key } = await handleAutocomplete(userInput);
             const weather = await handleWeatherData(key);
             const forecast = await handleForecastData(key);
 
-            const data = {...weather, forecast, city, key}
+            const data = {...weather, forecast}
             
             dispatch(weatherAndForecastSuccess(data))
 

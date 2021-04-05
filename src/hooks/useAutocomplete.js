@@ -18,6 +18,8 @@ const useAutocomplete = () => {
         try {
             dispatch(autocompleteRequest())
 
+            userInput.trim();
+
             const results = await autocompleteSearch(userInput);
     
             const mostRelevantResult = results[0];
