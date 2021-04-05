@@ -41,6 +41,9 @@ const weatherSlice = createSlice({
     autocompleteFail: (state, action) => {
       state.loadingAutocomplete = false;
       state.error = action.payload
+    },
+    clearError: (state) => {
+      state.error = ''
     }
   },
 });

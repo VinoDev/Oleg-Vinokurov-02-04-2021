@@ -8,17 +8,17 @@ const useAutocomplete = () => {
     const { 
         autocompleteRequest,
         autocompleteSuccess,
-        autocompleteFail
+        autocompleteFail,
     } = CurrentLocationSlice.actions;
     
     const handleAutocomplete = async (userInput) => {
         try {
             dispatch(autocompleteRequest())
 
-            userInput.trim();
-
             const results = await autocompleteSearch(userInput);
     
+            console.log(results);
+
             const mostRelevantResult = results[0];
 
             dispatch(
@@ -26,12 +26,13 @@ const useAutocomplete = () => {
                     {key: mostRelevantResult.Key, city: mostRelevantResult.LocalizedName}
                 )
             )
-
+            
             return mostRelevantResult.Key;   
         } catch (error) {
-            dispatch(autocompleteFail("Something went wrong..."))
             console.log("Autocomplete error")
             console.log(error);
+            dispatch(autocompleteFail("Something went wrong..."))
+            throw new Error(error);
         }
     }
 

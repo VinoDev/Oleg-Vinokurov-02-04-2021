@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { autocompleteSearch, fetchWeather } from '../api.js';
 import { useSnackbar } from 'notistack';
-import CurrentLocationSlice from '../state/weatherSlice.js';
 import useAutocomplete from '../hooks/useAutocomplete.js';
 import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
 import SearchField from './SearchForm.js'

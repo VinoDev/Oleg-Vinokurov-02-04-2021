@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
 import useAutocomplete from '../hooks/useAutocomplete.js';
+import weatherSlice from '../state/weatherSlice.js';
 import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
 
 const useForm = () => {
 
     const [ userInput, setUserInput ] = useState('');
-    
     const { getWeatherAndForecast } = useGetWeatherAndForecast();
     const { handleAutocomplete } = useAutocomplete();
 
@@ -19,9 +20,14 @@ const useForm = () => {
     const handleSubmit = async (e) => {
         try {
             e.preventDefault()
-            const key = await handleAutocomplete(userInput);
-            setUserInput('');
-            return getWeatherAndForecast(key)
+            if(userInput){
+                userInput.trim();
+
+                const key = await handleAutocomplete(userInput);
+                setUserInput('');
+    
+                return getWeatherAndForecast(key)
+            } 
         } catch (error) {
             console.log("handleSubmit error")
             console.log(error);

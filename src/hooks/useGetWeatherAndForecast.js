@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { fetchWeather, fetchForecast } from '../api.js';
-import CurrentLocationSlice from '../state/weatherSlice.js';
+import weatherSlice from '../state/weatherSlice.js';
 import dateToDay from '../utils/dateToDay.js';
 
 const useGetWeatherAndForecast = () => {
@@ -10,7 +10,7 @@ const useGetWeatherAndForecast = () => {
         weatherAndForecastRequest,
         weatherAndForecastSuccess,
         weatherAndForecastFail
-    } = CurrentLocationSlice.actions;
+    } = weatherSlice.actions;
 
     const getWeatherAndForecast = async (key) => {
         try {
@@ -26,9 +26,10 @@ const useGetWeatherAndForecast = () => {
             dispatch(weatherAndForecastSuccess(data))
 
         } catch (error) {
-            dispatch(weatherAndForecastFail("Something went wrong..."))
             console.log("weatherAndForecast error");
             console.log(error);
+            dispatch(weatherAndForecastFail("Something went wrong..."))
+            throw new Error(error);
         }
     }
 

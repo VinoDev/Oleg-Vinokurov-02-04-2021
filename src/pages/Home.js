@@ -7,17 +7,23 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { autocompleteSearch, fetchWeather } from '../api.js';
 import { useSnackbar } from 'notistack';
-import CurrentLocationSlice from '../state/weatherSlice.js';
+import weatherSlice from '../state/weatherSlice.js';
 import useAutocomplete from '../hooks/useAutocomplete.js';
 import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
 import SearchForm from '../components/SearchForm.js'
 import WeatherInfo from '../components/WeatherInfo.js'
 import useForm from "../hooks/useForm.js";
+import useErrorHandler from '../hooks/useErrorHandler.js'
 
 const Home = () => {
 
-    const { loadingData, loadingAutocomplete } = useSelector((state) => state.weather);
+    const { loadingData, loadingAutocomplete, error } = useSelector((state) => state.weather);
     const { handleSubmit, handleChange, userInput } = useForm();
+    const { showErrorMessage } = useErrorHandler()
+
+    useEffect(()=>{
+        error && showErrorMessage(error)
+    }, [error])
 
     if(loadingAutocomplete || loadingData){
         return (
