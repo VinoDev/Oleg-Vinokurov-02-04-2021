@@ -10,12 +10,13 @@ import dateToDay from '../utils/dateToDay.js';
 const useGetWeatherAndForecast = () => {
     
     const dispatch = useDispatch();
-    const { autocompleteResult } = useAutocomplete();
     const { 
         weatherAndForecastRequest,
         weatherAndForecastSuccess,
         weatherAndForecastFail
     } = CurrentLocationSlice.actions;
+
+    const { key, city } = useSelector((state) => state.weather);
 
     const getWeatherAndForecast = async () => {
         try {
@@ -34,15 +35,6 @@ const useGetWeatherAndForecast = () => {
             console.log("weatherAndForecast error");
             console.log(error);
         }
-    }
-
-    const handleAutocomplete = async (query) => {
-        
-        const results = await autocompleteSearch(query);
-
-        const mostRelevantResult = results[0];
-
-        return {key: mostRelevantResult.key, city: mostRelevantResult.LocalizedName};
     }
 
     const handleWeatherData = async (key) => {
