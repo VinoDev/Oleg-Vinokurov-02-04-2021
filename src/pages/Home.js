@@ -10,17 +10,16 @@ import { useSnackbar } from 'notistack';
 import CurrentLocationSlice from '../state/weatherSlice.js';
 import useAutocomplete from '../hooks/useAutocomplete.js';
 import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
-import SearchField from '../components/SearchForm.js'
+import SearchForm from '../components/SearchForm.js'
 import WeatherInfo from '../components/WeatherInfo.js'
+import useForm from "../hooks/useForm.js";
 
 const Home = () => {
 
-    const { handleChange } = useAutocomplete();
-    const { getWeatherAndForecast } = useGetWeatherAndForecast();
+    const { loadingData, loadingAutocomplete } = useSelector((state) => state.weather);
+    const { handleSubmit, handleChange, userInput } = useForm();
 
-    const loading = false;
-
-    if(loading){
+    if(loadingAutocomplete || loadingData){
         return (
             <div className="load-container">
                 <CircularProgress/>
@@ -29,7 +28,7 @@ const Home = () => {
     } else {
         return (
             <div className="page">
-                <SearchField/>
+                <SearchForm handleSubmit={handleSubmit} handleChange={handleChange} userInput={userInput} />
                 <WeatherInfo/>
             </div>
         );

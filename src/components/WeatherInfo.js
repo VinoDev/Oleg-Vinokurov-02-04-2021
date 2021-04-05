@@ -27,7 +27,7 @@ const WeatherInfo = () => {
                     </div>
                     <div className="current-city-info">
                         <span>{`${city && city}`}</span>
-                        <span>{`${temp && temp+"'c"}`}</span>
+                        <span>{`${temp && temp+" °C"}`}</span>
                     </div>
                 </div>
                 <div className="favourite-toggle">
