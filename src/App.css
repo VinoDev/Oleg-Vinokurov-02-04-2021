@@ -1,6 +1,6 @@
 :root {
   --primary-color: #1e88e5;
-  --secondary-color: #f1f2f5;
+  --secondary-color: #f6f7f9;
   --darken-secondary-color: #d8d9dc;
 }
 
@@ -16,4 +16,5 @@
   align-items: center;
   flex-direction: column;
   flex-grow: 1;
+  background-color: var(--secondary-color);
 }

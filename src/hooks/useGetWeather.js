@@ -2,7 +2,6 @@ import { TextField } from "@material-ui/core";
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { autocompleteSearch, fetchWeather, fetchForecast } from '../api.js';
-import { mockAutocomplete, mockWeather, mockForecast } from '../mock.js';
 import { useSnackbar } from 'notistack';
 import CurrentLocationSlice from '../state/CurrentLocationSlice.js';
 import useAutocomplete from '../hooks/useAutocomplete.js';
@@ -37,7 +36,7 @@ const useGetWeather = () => {
             const weather = await handleWeatherData()
             const forecast = await handleForecastData()
 
-            
+
         } catch (error) {
             dispatch(weatherAndForecastFail("Something went wrong..."))
         }
@@ -49,7 +48,7 @@ const useGetWeather = () => {
             console.log(autocompleteResult)
             if(autocompleteResult) {
                 const cityData = {city: autocompleteResult.city, key: autocompleteResult.key}
-                dispatch(updateCityData(cityData))
+
             }
 
             e.target.value = ''

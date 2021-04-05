@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { mockAutocomplete } from '../mock.js';
 import { autocompleteSearch, fetchWeather } from '../api.js';
 import CurrentLocationSlice from '../state/CurrentLocationSlice.js';
 import { useSelector, useDispatch } from "react-redux";

@@ -3,9 +3,21 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 20px;
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
+    background-color: white;
     height: 50%;
     width: 80%;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 50%;
+}
+
+.search-field {
+    width: 100%;
 }
 
 .info-top{
