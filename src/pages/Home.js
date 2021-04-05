@@ -7,16 +7,18 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { autocompleteSearch, fetchWeather } from '../api.js';
 import { useSnackbar } from 'notistack';
-import CurrentLocationSlice from '../state/CurrentLocationSlice.js';
+import CurrentLocationSlice from '../state/weatherSlice.js';
 import useAutocomplete from '../hooks/useAutocomplete.js';
-import useGetWeather from '../hooks/useGetWeather';
+import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
 import SearchField from '../components/SearchForm.js'
 import WeatherInfo from '../components/WeatherInfo.js'
 
 const Home = () => {
 
     const { handleChange } = useAutocomplete();
-    const { handleSubmit, data: {city, key, temp, weatherText, weatherIcon, forecast, loading} } = useGetWeather();
+    const { getWeatherAndForecast } = useGetWeatherAndForecast();
+
+    const loading = false;
 
     if(loading){
         return (

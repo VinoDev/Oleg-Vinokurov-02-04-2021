@@ -8,11 +8,22 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { autocompleteSearch, fetchWeather } from '../api.js';
 import { useSnackbar } from 'notistack';
-import CurrentLocationSlice from '../state/CurrentLocationSlice.js';
+import CurrentLocationSlice from '../state/weatherSlice.js';
 import useAutocomplete from '../hooks/useAutocomplete.js';
-import useGetWeather from '../hooks/useGetWeather';
+import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
 
 const SearchForm = () => {
+
+    const [ userInput, setUserInput ] = useState('');
+
+    const handleChange = (e) => {
+        const regex = /^[a-z_ ]+$/i
+        if(e.target.value === '' || regex.test(e.target.value)){
+            setUserInput(e.target.value)
+        }
+    }
+
+    const { getWeatherAndForecast } = useGetWeatherAndForecast();
 
     return (
         <form className="search-form">
@@ -20,6 +31,8 @@ const SearchForm = () => {
               variant="filled"  
               label="City"
               className="search-field"
+              value={userInput}
+              onChange={(e)=>handleChange(e)}
             />
             <Button>
                 <SearchIcon/>

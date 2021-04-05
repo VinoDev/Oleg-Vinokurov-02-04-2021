@@ -7,13 +7,12 @@ const initialState = {
   weatherIcon: "",
   key: "",
   forecast: [],
-  autocompleteResult: null,
   loading: false,
   error: ""
 }
 
-const CurrentLocationSlice = createSlice({
-  name: "CurrentLocation",
+const weatherSlice = createSlice({
+  name: "weather",
   initialState: initialState,
   reducers: {
     weatherAndForecastRequest: (state, action) => {
@@ -31,8 +30,20 @@ const CurrentLocationSlice = createSlice({
     weatherAndForecastFail: (state, action) => {
       state.loading = false;
       state.error = action.payload
+    },
+    autocompleteRequest: (state, action) => {
+      state.loading = true;
+    },
+    autocompleteSuccess: (state, action) => {
+      state.loading = false;
+      state.key = action.payload.key
+      state.city = action.payload.city
+    },
+    autocompleteFail: (state, action) => {
+      state.loading = false;
+      state.error = action.payload
     }
   },
 });
 
-export default CurrentLocationSlice;
+export default weatherSlice;

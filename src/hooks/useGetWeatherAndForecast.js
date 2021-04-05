@@ -3,15 +3,12 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { autocompleteSearch, fetchWeather, fetchForecast } from '../api.js';
 import { useSnackbar } from 'notistack';
-import CurrentLocationSlice from '../state/CurrentLocationSlice.js';
+import CurrentLocationSlice from '../state/weatherSlice.js';
 import useAutocomplete from '../hooks/useAutocomplete.js';
 import dateToDay from '../utils/dateToDay.js';
 
-const useGetWeather = () => {
+const useGetWeatherAndForecast = () => {
     
-    //useGetWeatherAndForecast
-
-    const { enqueueSnackbar } = useSnackbar();
     const dispatch = useDispatch();
     const { autocompleteResult } = useAutocomplete();
     const { 
@@ -19,56 +16,39 @@ const useGetWeather = () => {
         weatherAndForecastSuccess,
         weatherAndForecastFail
     } = CurrentLocationSlice.actions;
-    const { 
-        city, 
-        key, 
-        temp, 
-        weatherIcon, 
-        weatherText, 
-        forecast,
-        loading
-    } = useSelector((state)=>state.currentLocation);
 
-    const getWeatherAndForecast = async (key) => {
+    const getWeatherAndForecast = async (userInput) => {
         try {
+
             dispatch(weatherAndForecastRequest());
 
-            const weather = await handleWeatherData()
-            const forecast = await handleForecastData()
+            userInput.trim();
 
+            const { city, key } = await handleAutocomplete(userInput);
+            const weather = await handleWeatherData(key);
+            const forecast = await handleForecastData(key);
+
+            const data = {...weather, forecast, city, key}
+            
+            dispatch(weatherAndForecastSuccess(data))
 
         } catch (error) {
             dispatch(weatherAndForecastFail("Something went wrong..."))
-        }
-    }
-
-    const handleSubmit = async (e) => {
-        if(e.key === "Enter") {
-            e.preventDefault();
-            console.log(autocompleteResult)
-            if(autocompleteResult) {
-                const cityData = {city: autocompleteResult.city, key: autocompleteResult.key}
-
-            }
-
-            e.target.value = ''
+            console.log("weatherAndForecast error");
+            console.log(error);
         }
     }
 
     const handleAutocomplete = async (query) => {
         
-        if(query.length > 0) { 
+        const results = await autocompleteSearch(query);
 
-            const results = await autocompleteSearch(query);
+        const mostRelevantResult = results[0];
 
-            const mostRelevantResult = results[0];
-
-            return mostRelevantResult;
-        }
-        console.log(autocompleteResult);
+        return {key: mostRelevantResult.key, city: mostRelevantResult.LocalizedName};
     }
 
-    const handleWeatherData = async () => {
+    const handleWeatherData = async (key) => {
         const result = await fetchWeather(key);
 
         const weatherData = {
@@ -80,7 +60,7 @@ const useGetWeather = () => {
         return weatherData;
     }
 
-    const handleForecastData = async () => {
+    const handleForecastData = async (key) => {
         const result = await fetchForecast(key);
 
         const forecastData = result.map(dayForecast => {
@@ -92,9 +72,7 @@ const useGetWeather = () => {
         })
     }
 
-    const data = {city, key, temp, weatherText, weatherIcon, forecast, loading};
-
-    return { handleSubmit, data }
+    return { getWeatherAndForecast }
 }
 
-export default useGetWeather;
+export default useGetWeatherAndForecast;

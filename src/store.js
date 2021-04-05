@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 import {configureStore} from "@reduxjs/toolkit"
-import CurrentLoctionSlice from './state/CurrentLocationSlice.js';
+import weatherSlice from './state/weatherSlice.js';
 
 const rootReducer = combineReducers({
-    currentLocation: CurrentLoctionSlice.reducer
+    weatherSlice: weatherSlice.reducer
 })
 
 const store = configureStore({

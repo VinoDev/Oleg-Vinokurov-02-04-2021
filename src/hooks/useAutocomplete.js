@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { autocompleteSearch, fetchWeather } from '../api.js';
-import CurrentLocationSlice from '../state/CurrentLocationSlice.js';
+import CurrentLocationSlice from '../state/weatherSlice.js';
 import { useSelector, useDispatch } from "react-redux";
 import { useSnackbar } from 'notistack';
 
@@ -8,29 +8,35 @@ import { useSnackbar } from 'notistack';
 const useAutocomplete = () => {
 
     const dispatch = useDispatch();
-    const { enqueueSnackbar } = useSnackbar();
-    const { setAutocompleteResult } = CurrentLocationSlice.actions;
-    const { autocompleteResult } = useSelector((state)=>state.currentLocation);
+    const { 
+        autocompleteRequest,
+        autocompleteSuccess,
+        autocompleteFail
+    } = CurrentLocationSlice.actions;
+    
+    const handleAutocomplete = async (userInput) => {
+        try {
+            dispatch(autocompleteRequest())
 
-    const handleChange = async (query) => {
-        
-        if(query.length > 0) { 
-            const results = await autocompleteSearch(query);
-            // const results = mockAutocomplete;
-
-            if(results.error) {
-                enqueueSnackbar(results.error, {variant: "error", preventDuplicate: true})
-                return false;
-            }
-
+            const results = await autocompleteSearch(userInput);
+    
             const mostRelevantResult = results[0];
 
-            dispatch(setAutocompleteResult(mostRelevantResult));
+            dispatch(
+                autocompleteSuccess(
+                    {key: mostRelevantResult.key, city: mostRelevantResult.LocalizedName}
+                )
+            )
+
+            return mostRelevantResult;   
+        } catch (error) {
+            dispatch(autocompleteFail("Something went wrong..."))
+            console.log("Autocomplete error")
+            console.log(error);
         }
-        console.log(autocompleteResult);
     }
 
-    return {autocompleteResult}
+    return { handleAutocomplete }
 }
 
 export default useAutocomplete;
