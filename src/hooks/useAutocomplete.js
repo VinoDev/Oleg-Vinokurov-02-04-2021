@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import { autocompleteSearch, fetchWeather } from '../api.js';
+import { autocompleteSearch } from '../api.js';
 import CurrentLocationSlice from '../state/weatherSlice.js';
-import { useSelector, useDispatch } from "react-redux";
-import { useSnackbar } from 'notistack';
-
+import { useDispatch } from "react-redux";
 
 const useAutocomplete = () => {
 
@@ -26,11 +23,11 @@ const useAutocomplete = () => {
 
             dispatch(
                 autocompleteSuccess(
-                    {key: mostRelevantResult.key, city: mostRelevantResult.LocalizedName}
+                    {key: mostRelevantResult.Key, city: mostRelevantResult.LocalizedName}
                 )
             )
 
-            return mostRelevantResult;   
+            return mostRelevantResult.Key;   
         } catch (error) {
             dispatch(autocompleteFail("Something went wrong..."))
             console.log("Autocomplete error")

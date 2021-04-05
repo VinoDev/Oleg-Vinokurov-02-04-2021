@@ -1,10 +1,6 @@
-import { TextField } from "@material-ui/core";
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { autocompleteSearch, fetchWeather, fetchForecast } from '../api.js';
-import { useSnackbar } from 'notistack';
+import { useDispatch } from "react-redux";
+import { fetchWeather, fetchForecast } from '../api.js';
 import CurrentLocationSlice from '../state/weatherSlice.js';
-import useAutocomplete from '../hooks/useAutocomplete.js';
 import dateToDay from '../utils/dateToDay.js';
 
 const useGetWeatherAndForecast = () => {
@@ -16,9 +12,7 @@ const useGetWeatherAndForecast = () => {
         weatherAndForecastFail
     } = CurrentLocationSlice.actions;
 
-    const { key, city } = useSelector((state) => state.weather);
-
-    const getWeatherAndForecast = async () => {
+    const getWeatherAndForecast = async (key) => {
         try {
 
             dispatch(weatherAndForecastRequest());
@@ -27,6 +21,7 @@ const useGetWeatherAndForecast = () => {
             const forecast = await handleForecastData(key);
 
             const data = {...weather, forecast}
+            console.log(data);
             
             dispatch(weatherAndForecastSuccess(data))
 
@@ -40,10 +35,11 @@ const useGetWeatherAndForecast = () => {
     const handleWeatherData = async (key) => {
         const result = await fetchWeather(key);
 
+        console.log(result);
         const weatherData = {
-            temp: result.temp,
-            weatherText: result.weatherText,
-            weatherIcon: result.weatherIcon
+            temp: result.Temperature.Metric.Value.toString(),
+            weatherText: result.WeatherText,
+            weatherIcon: result.WeatherIcon
         }
 
         return weatherData;
@@ -53,12 +49,15 @@ const useGetWeatherAndForecast = () => {
         const result = await fetchForecast(key);
 
         const forecastData = result.map(dayForecast => {
-            const avgTemp = ((dayForecast.Temperature.Minimum.Value + dayForecast.Temperature.Maximum.Value)/2)
+
             return {
                 day: dateToDay(dayForecast.Date),
-                temp: avgTemp.toString()
+                minTemp: dayForecast.Temperature.Minimum.Value.toString(),
+                maxTemp: dayForecast.Temperature.Maximum.Value.toString()
             }
         })
+
+        return forecastData;
     }
 
     return { getWeatherAndForecast }

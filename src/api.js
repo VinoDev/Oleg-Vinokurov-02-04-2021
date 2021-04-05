@@ -8,16 +8,7 @@ export const fetchWeather = async (locationKey) => {
         const res = await fetch(url);
         const data = await res.json();
 
-        const currentWeather = {
-            weatherText: data.weatherText,
-            weatherIcon: data.weatherIcon,
-            temp: data.Temprature.Metric.Value.toString()
-        }
-
-        console.log("fetchWeather api")
-        console.log(currentWeather)
-
-        return currentWeather;
+        return data[0];
     } catch (error) {
         throw new Error(error)
     }
@@ -42,8 +33,6 @@ export const autocompleteSearch = async (query) => {
     try {
         const res = await fetch(url);
         let data = await res.json();
-        console.log("autocompleteSearch api")
-        console.log(data)
 
         return data 
     } catch (error) {
