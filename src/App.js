@@ -1,12 +1,12 @@
 import './app.css';
 import Navbar from './components/Navbar.js';
-import WeatherInfo from './components/WeatherInfo.js';  
+import Home from './pages/Home.js';  
 
 function App() {
   return (
     <div className="app">
       <Navbar/>
-      <WeatherInfo/>
+      <Home/>
     </div>
   );
 }
