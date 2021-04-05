@@ -15,12 +15,9 @@ import SearchField from './SearchForm.js'
 
 const WeatherInfo = () => {
 
-    const { handleChange } = useAutocomplete();
-    const { handleSubmit } = useGetWeatherAndForecast();
+    const { city, temp } = useSelector((state) => state.weather);
 
-    const city = '';
-    const temp = '';
-    const forecast = [];
+    const forecast = []
 
     return (
         <div className="weather-info">

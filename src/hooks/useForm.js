@@ -20,6 +20,7 @@ const useForm = () => {
         try {
             e.preventDefault()
             const key = await handleAutocomplete(userInput);
+            setUserInput('');
             return getWeatherAndForecast(key)
         } catch (error) {
             console.log("handleSubmit error")
