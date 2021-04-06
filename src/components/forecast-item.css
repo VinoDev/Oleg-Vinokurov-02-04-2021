@@ -18,3 +18,9 @@
     font-size: 0.9em;
     color: grey;
 }
+
+@media (max-width: 900px) {
+    .forecast-item{
+        min-width: 100px;
+    }
+}

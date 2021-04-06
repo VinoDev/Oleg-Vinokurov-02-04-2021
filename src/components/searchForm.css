@@ -9,3 +9,11 @@
 .search-field {
     width: 100%;
 }
+
+
+@media (max-width: 900px) {
+    .search-form{
+        width: 90%;
+        min-width: 0;
+    }
+}

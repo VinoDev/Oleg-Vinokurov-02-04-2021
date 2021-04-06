@@ -1,5 +1,5 @@
 import './weather-info.css';
-import { IconButton } from "@material-ui/core";
+import { IconButton, Divider } from "@material-ui/core";
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ForecastItem from './ForecastItem.js';
 import { useSelector } from "react-redux";
