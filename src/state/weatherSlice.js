@@ -7,7 +7,7 @@ const initialState = {
   weatherIcon: "",
   key: "",
   forecast: [],
-  loadingData: true,
+  loadingData: false,
   loadingAutocomplete: false,
   error: ""
 }

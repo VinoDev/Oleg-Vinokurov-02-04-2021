@@ -14,10 +14,10 @@ const Home = () => {
     const { showErrorMessage } = useErrorHandler()
     const { getWeatherAndForecast } = useGetWeatherAndForecast()
 
-    useEffect(()=>{
-        const initCity = {key: "215854", city: "Tel Aviv"}
-        getWeatherAndForecast(initCity)
-    }, [])
+    // useEffect(()=>{
+    //     const initCity = {key: "215854", city: "Tel Aviv"}
+    //     getWeatherAndForecast(initCity)
+    // }, [])
 
     useEffect(()=>{
         error && showErrorMessage(error)
