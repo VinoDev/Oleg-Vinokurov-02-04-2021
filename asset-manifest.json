@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Oleg-Vinokurov-02-04-2021/static/css/main.2703172c.chunk.css",
-    "main.js": "/Oleg-Vinokurov-02-04-2021/static/js/main.b9755485.chunk.js",
-    "main.js.map": "/Oleg-Vinokurov-02-04-2021/static/js/main.b9755485.chunk.js.map",
+    "main.css": "/Oleg-Vinokurov-02-04-2021/static/css/main.514fcccf.chunk.css",
+    "main.js": "/Oleg-Vinokurov-02-04-2021/static/js/main.3671f7ea.chunk.js",
+    "main.js.map": "/Oleg-Vinokurov-02-04-2021/static/js/main.3671f7ea.chunk.js.map",
     "runtime-main.js": "/Oleg-Vinokurov-02-04-2021/static/js/runtime-main.d8a777d8.js",
     "runtime-main.js.map": "/Oleg-Vinokurov-02-04-2021/static/js/runtime-main.d8a777d8.js.map",
     "static/js/2.4d9d2fa1.chunk.js": "/Oleg-Vinokurov-02-04-2021/static/js/2.4d9d2fa1.chunk.js",
     "static/js/2.4d9d2fa1.chunk.js.map": "/Oleg-Vinokurov-02-04-2021/static/js/2.4d9d2fa1.chunk.js.map",
     "index.html": "/Oleg-Vinokurov-02-04-2021/index.html",
-    "static/css/main.2703172c.chunk.css.map": "/Oleg-Vinokurov-02-04-2021/static/css/main.2703172c.chunk.css.map",
+    "static/css/main.514fcccf.chunk.css.map": "/Oleg-Vinokurov-02-04-2021/static/css/main.514fcccf.chunk.css.map",
     "static/js/2.4d9d2fa1.chunk.js.LICENSE.txt": "/Oleg-Vinokurov-02-04-2021/static/js/2.4d9d2fa1.chunk.js.LICENSE.txt",
     "static/media/Cloud.d61e7b67.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Cloud.d61e7b67.svg",
     "static/media/Fog.b7e20899.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Fog.b7e20899.svg",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.d8a777d8.js",
     "static/js/2.4d9d2fa1.chunk.js",
-    "static/css/main.2703172c.chunk.css",
-    "static/js/main.b9755485.chunk.js"
+    "static/css/main.514fcccf.chunk.css",
+    "static/js/main.3671f7ea.chunk.js"
   ]
 }
