@@ -3,14 +3,17 @@ import { IconButton, Divider } from "@material-ui/core";
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ForecastItem from './ForecastItem.js';
 import { useSelector } from "react-redux";
+import FavoriteButton from './FavoriteButton.js';
 
 const WeatherInfo = () => {
 
     const { city, temp, forecast } = useSelector((state) => state.weather);
-
+    
     return (
         <div className="weather-info">
+
             <div className="info-top">
+                
                 <div className="current-city">
                     <div className="icon-demo">
                     </div>
@@ -19,11 +22,9 @@ const WeatherInfo = () => {
                         <span>{`${temp && temp+" °C"}`}</span>
                     </div>
                 </div>
-                <div className="favorite-toggle">
-                    <IconButton>
-                        <FavoriteBorderIcon/>
-                    </IconButton>
-                </div>
+
+                <FavoriteButton/>
+
             </div>
             <div className="info-bottom">
                 {forecast.length > 0 && forecast.map((dayForecast, index) => {

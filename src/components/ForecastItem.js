@@ -2,7 +2,7 @@ import './forecast-item.css';
 
 
 const ForecastItem = ({data}) => {
-  console.log(data);
+
   return (
     <div className="forecast-item">
         <span className="forecast-day">

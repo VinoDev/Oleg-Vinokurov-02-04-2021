@@ -18,6 +18,7 @@ const weatherSlice = createSlice({
   reducers: {
     weatherAndForecastRequest: (state, action) => {
       state.loadingData = true;
+      state.error = "";
     },
     weatherAndForecastSuccess: (state, action) => {
       state.loadingData = false;
@@ -34,6 +35,7 @@ const weatherSlice = createSlice({
     },
     autocompleteRequest: (state, action) => {
       state.loadingAutocomplete = true;
+      state.error = "";
     },
     autocompleteSuccess: (state, action) => {
       state.loadingAutocomplete = false;
