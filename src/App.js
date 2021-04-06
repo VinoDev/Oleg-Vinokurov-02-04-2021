@@ -4,12 +4,19 @@ import Navbar from './components/Navbar.js';
 import Home from './pages/Home.js';  
 import Favourites from './pages/Favourites.js';
 import { useEffect } from 'react';
-import useErrorHandler from './hooks/useErrorHandler.js'
+import useErrorHandler from './hooks/useErrorHandler.js';
+import useGetWeatherAndForecast from './hooks/useGetWeatherAndForecast.js';
 
 const App = () => {
 
+  const { getWeatherAndForecast } = useGetWeatherAndForecast();
   const { showErrorMessage, error } = useErrorHandler()
   
+  useEffect(()=>{
+    const initCity = {key: "215854", city: "Tel Aviv"}
+    getWeatherAndForecast(initCity)
+  }, [])   
+
   useEffect(()=>{
     error && showErrorMessage(error)
   }, [error])
