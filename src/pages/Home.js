@@ -1,14 +1,6 @@
-import { TextField, CircularProgress, Button, IconButton } from "@material-ui/core";
-import SearchIcon from '@material-ui/icons/Search';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import ForecastItem from '../components/ForecastItem.js';
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { autocompleteSearch, fetchWeather } from '../api.js';
-import { useSnackbar } from 'notistack';
-import weatherSlice from '../state/weatherSlice.js';
-import useAutocomplete from '../hooks/useAutocomplete.js';
+import { CircularProgress } from "@material-ui/core";
+import { useEffect } from 'react';
+import { useSelector } from "react-redux";
 import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
 import SearchForm from '../components/SearchForm.js'
 import WeatherInfo from '../components/WeatherInfo.js'

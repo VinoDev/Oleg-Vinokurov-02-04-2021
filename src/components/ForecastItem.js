@@ -5,13 +5,13 @@ const ForecastItem = ({data}) => {
   console.log(data);
   return (
     <div className="forecast-item">
-        <span>
+        <span className="forecast-day">
             {data.day}
         </span>
         <span>
             {data.maxTemp+"°C"}
         </span>
-        <span>
+        <span className="min-temp">
             {data.minTemp+"°C"}
         </span>
     </div>

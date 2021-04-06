@@ -2,7 +2,7 @@ import './weather-info.css';
 import { IconButton } from "@material-ui/core";
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ForecastItem from './ForecastItem.js';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const WeatherInfo = () => {
 

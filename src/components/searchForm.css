@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-    width: 50%;
+    width: 30%;
+    min-width: 400px;
 }
 
 .search-field {
