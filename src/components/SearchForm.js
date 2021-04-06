@@ -1,7 +1,6 @@
 import './searchForm.css';
 import { TextField, Button } from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
-import useForm from "../hooks/useForm.js";
 
 const SearchForm = ({handleSubmit, handleChange, userInput}) => {
 

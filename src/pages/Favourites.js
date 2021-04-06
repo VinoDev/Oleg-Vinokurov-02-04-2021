@@ -1,32 +1,35 @@
-import { CircularProgress } from "@material-ui/core";
-import { useEffect } from 'react';
+import './favourites.css'
 import { useSelector } from "react-redux";
-import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
-import SearchForm from '../components/SearchForm.js'
-import WeatherInfo from '../components/WeatherInfo.js'
-import useForm from "../hooks/useForm.js";
-import useErrorHandler from '../hooks/useErrorHandler.js'
 
 const Favourites = () => {
 
-    // useEffect(()=>{
-    //     const initCity = {key: "215854", city: "Tel Aviv"}
-    //     getWeatherAndForecast(initCity)
-    // }, [])
+    const { favourites } = useSelector((state) => state.favourites);
+    console.log(favourites);
 
-    // if(loadingAutocomplete || loadingData){
-    //     return (
-    //         <div className="load-container">
-    //             <CircularProgress/>
-    //         </div>
-    //     )
-    // } else {
+    if(favourites.length > 0) {
         return (
-            <div className="page">
-                Test
+            <div className="favourites">
+                {
+                    favourites.map((favorite) => {
+                        return (
+                            <div className="favorite-item">
+                                <span>{favorite.city}</span>
+                                <span>{favorite.temp}</span>
+                                <span>{favorite.weatherText}</span>
+                                {/* <span>{favorite.weatherIcon}</span> */}
+                            </div>
+                        )
+                    })
+                }
             </div>
         );
-    //}
+    } else {
+        return (
+            <div className="no-data-msg">
+                You have no favorite location saved.
+            </div>
+        )
+    }
 }
 
 export default Favourites;

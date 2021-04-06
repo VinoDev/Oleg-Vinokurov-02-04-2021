@@ -16,7 +16,6 @@
   align-items: center;
   flex-direction: column;
   flex-grow: 1;
-  background-color: var(--secondary-color);
 }
 
 .load-container{
@@ -24,4 +23,10 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.no-data-msg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

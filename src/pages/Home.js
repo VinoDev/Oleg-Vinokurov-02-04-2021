@@ -1,12 +1,9 @@
+import './home.css';
 import { CircularProgress } from "@material-ui/core";
-import { useEffect } from 'react';
 import { useSelector } from "react-redux";
-import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
 import SearchForm from '../components/SearchForm.js'
 import WeatherInfo from '../components/WeatherInfo.js'
 import useForm from "../hooks/useForm.js";
-import useErrorHandler from '../hooks/useErrorHandler.js'
-import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 
 const Home = () => {
 
@@ -27,7 +24,7 @@ const Home = () => {
         )
     } else {
         return (
-            <div className="page">
+            <div className="home">
                 <SearchForm handleSubmit={handleSubmit} handleChange={handleChange} userInput={userInput} />
                 {!error && <WeatherInfo/>}
             </div>

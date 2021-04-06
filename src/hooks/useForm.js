@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from "react-redux";
 import useAutocomplete from '../hooks/useAutocomplete.js';
-import weatherSlice from '../state/weatherSlice.js';
 import useGetWeatherAndForecast from '../hooks/useGetWeatherAndForecast.js';
 
 const useForm = () => {
