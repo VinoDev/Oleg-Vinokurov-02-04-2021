@@ -19,7 +19,7 @@ const WeatherInfo = () => {
                         <span>{`${temp && temp+" °C"}`}</span>
                     </div>
                 </div>
-                <div className="favourite-toggle">
+                <div className="favorite-toggle">
                     <IconButton>
                         <FavoriteBorderIcon/>
                     </IconButton>
