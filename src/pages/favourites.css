@@ -19,3 +19,8 @@
     padding: 15px;
     background-color: white;
 }
+
+.no-data-msg{
+    height: 100vh;
+    display: flex;
+}

@@ -13,8 +13,7 @@ const WeatherInfo = () => {
             <div className="info-top">
                 
                 <div className="current-city">
-                    <div className="icon-demo">
-                    </div>
+                    {/* <div className="icon-demo"></div> */}
                     <div className="current-city-info">
                         <span>{`${city && city}`}</span>
                         <span>{`${temp && temp+" °C"}`}</span>

@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 const Favourites = () => {
 
     const { favourites } = useSelector((state) => state.favourites);
-    console.log(favourites);
 
     if(favourites.length > 0) {
         return (
@@ -12,7 +11,7 @@ const Favourites = () => {
                 {
                     favourites.map((favorite) => {
                         return (
-                            <div className="favorite-item">
+                            <div className="favorite-item" key={favorite.key}>
                                 <span>{favorite.city}</span>
                                 <span>{favorite.temp}</span>
                                 <span>{favorite.weatherText}</span>
