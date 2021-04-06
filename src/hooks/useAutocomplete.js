@@ -29,8 +29,6 @@ const useAutocomplete = () => {
             
             return cityData;   
         } catch (error) {
-            console.log("Autocomplete error")
-            console.log(error);
             dispatch(autocompleteFail("Something went wrong..."))
         }
     }

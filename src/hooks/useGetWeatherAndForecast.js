@@ -25,8 +25,6 @@ const useGetWeatherAndForecast = () => {
             dispatch(weatherAndForecastSuccess(data))
 
         } catch (error) {
-            console.log("weatherAndForecast error");
-            console.log(error);
             dispatch(weatherAndForecastFail("Something went wrong..."))
         }
     }
@@ -34,7 +32,6 @@ const useGetWeatherAndForecast = () => {
     const handleWeatherData = async (key) => {
         const result = await fetchWeather(key);
 
-        console.log(result);
         const weatherData = {
             temp: result.Temperature.Metric.Value.toString(),
             weatherText: result.WeatherText,

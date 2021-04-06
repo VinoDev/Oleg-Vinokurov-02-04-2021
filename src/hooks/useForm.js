@@ -32,8 +32,7 @@ const useForm = () => {
                 }
             } 
         } catch (error) {
-            console.log("handleSubmit error")
-            console.log(error);
+
         }
     }
 

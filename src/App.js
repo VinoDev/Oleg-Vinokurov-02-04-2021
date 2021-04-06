@@ -1,12 +1,9 @@
 import './app.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { CircularProgress } from "@material-ui/core";
+import { BrowserRouter, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.js';
 import Home from './pages/Home.js';  
 import Favourites from './pages/Favourites.js';
 import { useEffect } from 'react';
-import { useSelector } from "react-redux";
-import useGetWeatherAndForecast from './hooks/useGetWeatherAndForecast.js';
 import useErrorHandler from './hooks/useErrorHandler.js'
 
 const App = () => {

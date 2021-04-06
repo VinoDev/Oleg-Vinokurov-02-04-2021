@@ -4,7 +4,7 @@ export const fetchWeather = async (locationKey) => {
 
     const url = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${API_KEY}`
     try {
-        console.log(url)
+
         const res = await fetch(url);
         const data = await res.json();
 
@@ -19,8 +19,6 @@ export const fetchForecast = async (locationKey) => {
     try {
         const res = await fetch(url);
         const data = await res.json();
-        console.log("fetchForecast api")
-        console.log(data)
 
         return data.DailyForecasts
     } catch (error) {
