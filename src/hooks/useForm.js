@@ -23,11 +23,11 @@ const useForm = () => {
             if(userInput){
                 userInput.trim();
 
-                const key = await handleAutocomplete(userInput);
+                const cityData = await handleAutocomplete(userInput);
                 setUserInput('');
                 
-                if(key){
-                    getWeatherAndForecast(key)
+                if(cityData.key){
+                    getWeatherAndForecast({...cityData})
                     return true
                 } else {
                     return false

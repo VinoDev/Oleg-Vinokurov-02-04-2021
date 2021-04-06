@@ -20,6 +20,12 @@ const Home = () => {
     const { loadingData, loadingAutocomplete, error } = useSelector((state) => state.weather);
     const { handleSubmit, handleChange, userInput } = useForm();
     const { showErrorMessage } = useErrorHandler()
+    const { getWeatherAndForecast } = useGetWeatherAndForecast()
+
+    useEffect(()=>{
+        const initCity = {key: "215854", city: "Tel Aviv"}
+        getWeatherAndForecast(initCity)
+    }, [])
 
     useEffect(()=>{
         error && showErrorMessage(error)

@@ -23,14 +23,11 @@ const useAutocomplete = () => {
             }
 
             const mostRelevantResult = results[0];
+            const cityData = {key: mostRelevantResult.Key, city: mostRelevantResult.LocalizedName}
 
-            dispatch(
-                autocompleteSuccess(
-                    {key: mostRelevantResult.Key, city: mostRelevantResult.LocalizedName}
-                )
-            )
+            dispatch(autocompleteSuccess(cityData))
             
-            return mostRelevantResult.Key;   
+            return cityData;   
         } catch (error) {
             console.log("Autocomplete error")
             console.log(error);

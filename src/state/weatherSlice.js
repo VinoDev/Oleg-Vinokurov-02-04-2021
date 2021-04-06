@@ -25,6 +25,8 @@ const weatherSlice = createSlice({
       state.weatherIcon = action.payload.weatherIcon;
       state.temp = action.payload.temp;
       state.forecast = action.payload.forecast;
+      state.key = action.payload.key
+      state.city = action.payload.city
     },
     weatherAndForecastFail: (state, action) => {
       state.loadingData = false;

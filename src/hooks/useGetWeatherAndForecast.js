@@ -12,7 +12,7 @@ const useGetWeatherAndForecast = () => {
         weatherAndForecastFail
     } = weatherSlice.actions;
 
-    const getWeatherAndForecast = async (key) => {
+    const getWeatherAndForecast = async ({key, city}) => {
         try {
 
             dispatch(weatherAndForecastRequest());
@@ -20,7 +20,7 @@ const useGetWeatherAndForecast = () => {
             const weather = await handleWeatherData(key);
             const forecast = await handleForecastData(key);
 
-            const data = {...weather, forecast}
+            const data = {...weather, forecast, key, city}
             
             dispatch(weatherAndForecastSuccess(data))
 
