@@ -11,10 +11,10 @@ const Home = () => {
       
     const { loadingData, loadingAutocomplete, error } = useSelector((state) => state.weather);  
 
-    // useEffect(()=>{
-    //     const initCity = {key: "215854", city: "Tel Aviv"}
-    //     getWeatherAndForecast(initCity)
-    // }, [])   
+    useEffect(()=>{
+        const initCity = {key: "215854", city: "Tel Aviv"}
+        getWeatherAndForecast(initCity)
+    }, [])   
 
     if( loadingData || loadingAutocomplete ) {
         return (
