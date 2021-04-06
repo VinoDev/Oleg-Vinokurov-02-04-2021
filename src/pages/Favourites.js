@@ -12,8 +12,8 @@ const Favourites = () => {
                     favourites.map((favorite) => {
                         return (
                             <div className="favorite-item" key={favorite.key}>
-                                <span>{favorite.city}</span>
-                                <span>{favorite.temp}</span>
+                                <span className="favorite-city">{favorite.city}</span>
+                                <span>{`${favorite.temp} °C`}</span>
                                 <span>{favorite.weatherText}</span>
                                 {/* <span>{favorite.weatherIcon}</span> */}
                             </div>

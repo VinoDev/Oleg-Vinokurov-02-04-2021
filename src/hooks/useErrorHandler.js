@@ -1,7 +1,5 @@
-import { useDispatch } from "react-redux";
 import { useSnackbar } from 'notistack';
 import { useSelector } from "react-redux";
-import weatherSlice from '../state/weatherSlice.js';
 
 const useErrorHandler = () => {
 

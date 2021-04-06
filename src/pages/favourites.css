@@ -20,6 +20,10 @@
     background-color: white;
 }
 
+.favorite-city{
+    margin-bottom: 10px;
+}
+
 .no-data-msg{
     height: 100vh;
     display: flex;
