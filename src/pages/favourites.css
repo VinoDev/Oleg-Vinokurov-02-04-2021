@@ -20,6 +20,10 @@
     background-color: white;
 }
 
+.favorite-item:hover{
+    cursor: pointer;
+}
+
 .favorite-city{
     margin-bottom: 10px;
 }
