@@ -1,20 +1,29 @@
 {
   "files": {
-    "main.css": "/Oleg-Vinokurov-02-04-2021/static/css/main.0f104db9.chunk.css",
-    "main.js": "/Oleg-Vinokurov-02-04-2021/static/js/main.e36a3dca.chunk.js",
-    "main.js.map": "/Oleg-Vinokurov-02-04-2021/static/js/main.e36a3dca.chunk.js.map",
+    "main.css": "/Oleg-Vinokurov-02-04-2021/static/css/main.2703172c.chunk.css",
+    "main.js": "/Oleg-Vinokurov-02-04-2021/static/js/main.b9755485.chunk.js",
+    "main.js.map": "/Oleg-Vinokurov-02-04-2021/static/js/main.b9755485.chunk.js.map",
     "runtime-main.js": "/Oleg-Vinokurov-02-04-2021/static/js/runtime-main.d8a777d8.js",
     "runtime-main.js.map": "/Oleg-Vinokurov-02-04-2021/static/js/runtime-main.d8a777d8.js.map",
-    "static/js/2.4d7996cb.chunk.js": "/Oleg-Vinokurov-02-04-2021/static/js/2.4d7996cb.chunk.js",
-    "static/js/2.4d7996cb.chunk.js.map": "/Oleg-Vinokurov-02-04-2021/static/js/2.4d7996cb.chunk.js.map",
+    "static/js/2.4d9d2fa1.chunk.js": "/Oleg-Vinokurov-02-04-2021/static/js/2.4d9d2fa1.chunk.js",
+    "static/js/2.4d9d2fa1.chunk.js.map": "/Oleg-Vinokurov-02-04-2021/static/js/2.4d9d2fa1.chunk.js.map",
     "index.html": "/Oleg-Vinokurov-02-04-2021/index.html",
-    "static/css/main.0f104db9.chunk.css.map": "/Oleg-Vinokurov-02-04-2021/static/css/main.0f104db9.chunk.css.map",
-    "static/js/2.4d7996cb.chunk.js.LICENSE.txt": "/Oleg-Vinokurov-02-04-2021/static/js/2.4d7996cb.chunk.js.LICENSE.txt"
+    "static/css/main.2703172c.chunk.css.map": "/Oleg-Vinokurov-02-04-2021/static/css/main.2703172c.chunk.css.map",
+    "static/js/2.4d9d2fa1.chunk.js.LICENSE.txt": "/Oleg-Vinokurov-02-04-2021/static/js/2.4d9d2fa1.chunk.js.LICENSE.txt",
+    "static/media/Cloud.d61e7b67.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Cloud.d61e7b67.svg",
+    "static/media/Fog.b7e20899.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Fog.b7e20899.svg",
+    "static/media/Moon.ed272c07.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Moon.ed272c07.svg",
+    "static/media/Partly-Cloudy-Moon.2ef9512f.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Partly-Cloudy-Moon.2ef9512f.svg",
+    "static/media/Partly-Cloudy.e31510c0.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Partly-Cloudy.e31510c0.svg",
+    "static/media/Rain.778544a0.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Rain.778544a0.svg",
+    "static/media/Snow.64d4e146.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Snow.64d4e146.svg",
+    "static/media/Sun.b6137c72.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Sun.b6137c72.svg",
+    "static/media/Thunder-Storm.53d9ec44.svg": "/Oleg-Vinokurov-02-04-2021/static/media/Thunder-Storm.53d9ec44.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d8a777d8.js",
-    "static/js/2.4d7996cb.chunk.js",
-    "static/css/main.0f104db9.chunk.css",
-    "static/js/main.e36a3dca.chunk.js"
+    "static/js/2.4d9d2fa1.chunk.js",
+    "static/css/main.2703172c.chunk.css",
+    "static/js/main.b9755485.chunk.js"
   ]
 }
