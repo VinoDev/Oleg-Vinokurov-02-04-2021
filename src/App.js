@@ -7,8 +7,8 @@ import Favourites from './pages/Favourites.js';
 function App() {
   return (
     <div className="app">
-      <Navbar/>
       <BrowserRouter>
+        <Navbar/>
         <Route path="/" exact={true} component={Home}/>
         <Route path="/favourites" exact={true} component={Favourites}/>
       </BrowserRouter>
